@@ -1,12 +1,42 @@
 let askButton = document.getElementById('myButton');
+// let Test = document.querySelector('#myButton')
 //console.log(askButton);
 
 
+function Hello () {
+  let botAnswer = document.createElement('div');
+  botAnswer.id = 'bot'
+  let answerSection = document.getElementById('answer'); 
+  botAnswer.style.backgroundColor = 'white'
+    botAnswer.innerText = "Привет, я бот"
+
+answerSection.appendChild(botAnswer);
+
+   
+    
+}
+
+setTimeout(Hello , 500)
 
 
-askButton.addEventListener('click', function() {
 
- 
+
+document.addEventListener('keydown', function(e){
+  if (e.key === "Enter") {
+    Start()
+  }
+})
+
+function someFunc(event) {
+    if (event.key == "Enter") {
+        console.log(12)
+    }
+}
+
+
+askButton.addEventListener('click',  Start);
+
+ function Start() {
 
 let text = document.getElementById('question').value; //toLowerCase();
 console.log(text);
@@ -19,7 +49,7 @@ myQuestion.id = 'human';
 
 myQuestion.innerText = text; 
 
-console.log(myQuestion);
+// console.log(myQuestion);
 let answerSection = document.getElementById('answer'); 
 
 
@@ -27,18 +57,9 @@ if (text !== '') {
 answerSection.appendChild(myQuestion); 
 
 
-
-
-
-console.log(myQuestion);
-
 let botAnswer = document.createElement('div');
 
-
-
-
 answerSection.appendChild(botAnswer);
-
 
  let AnimationAnswer = document.getElementById('fountainG');
  
@@ -72,24 +93,26 @@ if (text == 'Москва') {
   document.getElementById('question').value = '';
   function answ () {
     botAnswer.id = 'bot';
+    botAnswer.style.backgroundColor = 'white'
     botAnswer.innerText = "Верно"
     
     document.getElementById('question').value = '';
     AnimationAnswer.classList.add('hide')
      block.scrollTop = 9999;
   }
-  setTimeout(answ, 2000) 
+  setTimeout(answ, 1000) 
 } else {
+  botAnswer.id = 'bot';
    document.getElementById('question').value = '';
   function answ () {
-    botAnswer.id = 'bot';
+    botAnswer.style.backgroundColor = 'white'
     botAnswer.innerText = "Попробуй еще"
     
     document.getElementById('question').value = '';
     AnimationAnswer.classList.add('hide')
     block.scrollTop = 9999;
   }
-  setTimeout(answ, 2000)
+  setTimeout(answ, 10000)
 
  }
 
@@ -102,8 +125,8 @@ let block = document.getElementById("answer");
   questionBox.classList.add("emptyvalue");
 
 }
+}
 
-} );
 
 
 
